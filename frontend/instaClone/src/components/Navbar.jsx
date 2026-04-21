@@ -1,7 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import API from '../Api'
 
 const Navbar = () => {
+  const logout = async () => {
+    await API.post("/auth/logout");
+    window.location.href = "/login";
+  }
   return (
     <div className='broder-b p-4 flex justify-between items-center bg-white'>
         <h1 className='font-bold text-xl'>InstaClone</h1>
@@ -11,7 +16,7 @@ const Navbar = () => {
             <h2>CREATE POST</h2>
             <Link className='hover:text-blue-500' to="/login">LOGIN</Link>
             <Link className='hover:text-blue-500' to="/register">REGISTER</Link>
-            <button className='hover:text-red-500'>LOGOUT</button>
+            <button onClick={logout} className='hover:text-red-500'>LOGOUT</button>
 
          </div>
     </div>
