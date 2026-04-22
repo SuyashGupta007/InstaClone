@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className='broder-b p-4 flex justify-between items-center bg-white'>
         <h1 className='font-bold text-xl'>InstaClone</h1>
          <div className=' flex justify-between items-center space-x-4'>
-            <h2>HOME</h2>
+            <Link className='hover:text-blue-500' to="/">HOME</Link>
             <h2>MY POST</h2>
             <h2>CREATE POST</h2>
             <Link className='hover:text-blue-500' to="/login">LOGIN</Link>

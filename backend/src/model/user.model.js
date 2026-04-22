@@ -16,7 +16,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true  // Password is mandatory
-    }
+    },
+    posts:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Post"
+    }]
 });
 
 // Create model from schema (collection name will be 'users')
