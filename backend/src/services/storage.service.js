@@ -1,5 +1,6 @@
 // Import ImageKit SDK
-const ImageKit = require('@imagekit/nodejs');
+//const ImageKit = require('@imagekit/nodejs');
+const ImageKit = require("imagekit");
 
 // Initialize ImageKit instance with credentials from environment variables
 const imagekit = new ImageKit({
@@ -16,8 +17,9 @@ async function uploadFile(buffer) {
 
         // Upload file to ImageKit
         const result = await imagekit.upload({
-            file: base64File,                          // File in base64 format
-            fileName: `${Date.now()}.jpg`,             // Unique filename using timestamp
+            file: base64File, 
+            fileName:"image.jpg"                         // File in base64 format
+            //fileName: `${Date.now()}.jpg`,             // Unique filename using timestamp
             // useUniqueFileName: true,                // Optional: let ImageKit auto-generate unique name
             // folder: "/posts",                       // Optional: store inside folder
         });

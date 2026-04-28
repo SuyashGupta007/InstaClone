@@ -5,7 +5,7 @@ const multer = require("multer");
 
 // Import custom middleware and controller
 const authMiddleware = require("../middleware/auth.middleware");
-const { createPost } = require("../controllers/post.controller");
+const { createPost, getAllPosts, getUserPosts } = require("../controllers/post.controller");
 
 // Configure multer to store files in memory (buffer)
 // Useful when uploading directly to cloud services (Cloudinary, S3, etc.)
@@ -29,5 +29,9 @@ router.post(
     createPost 
     // Controller function to handle post creation logic
 );
+
+
+router.get("/allposts",getAllPosts);
+router.get("/myposts",authMiddleware,getUserPosts);
 
 module.exports = router; // Export router to use in main app
