@@ -13,7 +13,7 @@ const Navbar = () => {
          <div className=' flex justify-between items-center space-x-4'>
             <Link className='hover:text-blue-500' to="/">HOME</Link>
             <Link className='hover:text-blue-500' to="/profile">MY POST</Link>
-            <h2>CREATE POST</h2>
+            <Link className='hover:text-blue-500' to="/create-post">CREATE POST</Link>
             <Link className='hover:text-blue-500' to="/login">LOGIN</Link>
             <Link className='hover:text-blue-500' to="/register">REGISTER</Link>
             <button onClick={logout} className='hover:text-red-500'>LOGOUT</button>
