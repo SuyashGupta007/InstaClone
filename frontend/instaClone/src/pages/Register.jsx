@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../Api"; // Axios instance or API utility for backend calls
 
 // Register Component
 const Register = () => {
+  const navigate = useNavigate();
 
   // State to store form input values
   const [form, setForm] = useState({
@@ -20,6 +21,8 @@ const Register = () => {
 
       // Success message
       alert("User registered successfully");
+      navigate("/login");
+
     } catch (error) {
       // Logging error for debugging
       console.error(error.message);

@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import API from '../Api'
 
+
 const Navbar = () => {
+  const navigate = useNavigate();
   const logout = async () => {
     await API.post("/auth/logout");
-    window.location.href = "/login";
+    navigate("/login");
   }
   return (
     <div className='broder-b p-4 flex justify-between items-center bg-white'>

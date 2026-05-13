@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import API from "../Api"; // Axios instance or API utility for backend calls
 
 
 const Login = () => {
+   const navigate = useNavigate();
   // State to store form input values
   const [form, setForm] = useState({
     
@@ -14,17 +15,19 @@ const Login = () => {
   // Function to handle form submission
   const submit = async () => {
     try {
-      // Sending POST request to backend for user registration
+      // Sending POST request to backend for user login
       await API.post("/auth/login", form);
 
       // Success message
       alert("User logged in successfully");
+      navigate("/");
+
     } catch (error) {
       // Logging error for debugging
       console.error(error.message);
 
       // Failure message
-      alert("Registration failed");
+      alert("Login failed");
     }
   };
 
@@ -78,7 +81,7 @@ const Login = () => {
           </button>
         </div>
 
-        {/* Redirect to Login Page */}
+        {/* Redirect to Register Page */}
         <p className="text-center text-sm text-gray-500 mt-4">
             don't have an account?{" "}
           <Link
